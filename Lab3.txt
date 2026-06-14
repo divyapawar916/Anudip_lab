@@ -1,0 +1,76 @@
+Task: Let's consider a scenario where you want to retrieve information about students
+from a database table named student and display the results in ascending order based on their last names.
+Student table contain column (stud_id,FirstName,LastName,Age,Phoneno,Address) add 5 records in tables.
+
+Query:-
+
+
+mysql> create database demo;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use demo;
+Database changed
+
+mysql> create table Student(stud_id int not null primary key, First_Name varchar(20) not null, Last_name varchar(20) not null, Age int not null, Phone_No varchar(20) not null, Address varchar(20) not null);
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> desc Student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| stud_id    | int         | NO   | PRI | NULL    |       |
+| First_Name | varchar(20) | NO   |     | NULL    |       |
+| Last_name  | varchar(20) | NO   |     | NULL    |       |
+| Age        | int         | NO   |     | NULL    |       |
+| Phone_No   | varchar(20) | NO   |     | NULL    |       |
+| Address    | varchar(20) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.03 sec)
+
+
+mysql>  insert into student values(101,'Divya','Pawar',21,'7385530452','Sanpada');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>  insert into student values(102,'Sourabh','Kadam',23,'75335530452','Pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  insert into student values(103,'Prachi','Patil',20,'7282736333','Nerul');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into student values(104,'Dipali','More',25,'9987736333','Turbhe');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  insert into student values(105,'Supriya','Yadav',30,'9887736333','Panvel');
+Query OK, 1 row affected (0.01 sec)
+
+
+mysql> select * from Student;
++---------+------------+-----------+-----+-------------+---------+
+| stud_id | First_Name | Last_name | Age | Phone_No    | Address |
++---------+------------+-----------+-----+-------------+---------+
+|     101 | Divya      | Pawar     |  21 | 7385530452  | Sanpada |
+|     102 | Sourabh    | Kadam     |  23 | 75335530452 | Pune    |
+|     103 | Prachi     | Patil     |  20 | 7282736333  | Nerul   |
+|     104 | Dipali     | More      |  25 | 9987736333  | Turbhe  |
+|     105 | Supriya    | Yadav     |  30 | 9887736333  | Panvel  |
++---------+------------+-----------+-----+-------------+---------+
+5 rows in set (0.01 sec)
+
+
+
+
+Output:-
+
+mysql> select * from student order by Last_name asc;
++---------+------------+-----------+-----+-------------+---------+
+| stud_id | First_Name | Last_name | Age | Phone_No    | Address |
++---------+------------+-----------+-----+-------------+---------+
+|     102 | Sourabh    | Kadam     |  23 | 75335530452 | Pune    |
+|     104 | Dipali     | More      |  25 | 9987736333  | Turbhe  |
+|     103 | Prachi     | Patil     |  20 | 7282736333  | Nerul   |
+|     101 | Divya      | Pawar     |  21 | 7385530452  | Sanpada |
+|     105 | Supriya    | Yadav     |  30 | 9887736333  | Panvel  |
++---------+------------+-----------+-----+-------------+---------+
+5 rows in set (0.02 sec)
+
+mysql>
